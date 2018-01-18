@@ -40,5 +40,6 @@ function ArrayUniq2(theArray){
 }
 // ES6版本
 function uniq(a) {
+	// 通过Set 方法构造出来的数据，本身就有去重功能，因为Set本身的特性就是不允许重复的值
    return Array.from(new Set(a));
 }
