@@ -19,3 +19,26 @@ function IsEmptyObj(obj) {
     }
     return !0;
 };
+
+// 数组去重
+// 简单去重
+function ArrayUniq(theArray){
+	return theArray.filter((item, idx, arr) => {
+	  return arr.indexOf(item) === idx;
+	});
+}
+// 支持基础类型和对象类型
+function ArrayUniq2(theArray){
+	 var prims = {"boolean":{}, "number":{}, "string":{}}, objs = [];
+  return a.filter(function(item) {
+      var type = typeof item;
+      if(type in prims)
+          return prims[type].hasOwnProperty(item) ? false : (prims[type][item] = true);
+      else
+          return objs.indexOf(item) >= 0 ? false : objs.push(item);
+  });
+}
+// ES6版本
+function uniq(a) {
+   return Array.from(new Set(a));
+}
